@@ -1,0 +1,48 @@
+<! -- Michael L. Kelley Jr. -- >
+<! -- Simple JavaScript clock timer -- >
+<! -- 05/23/2012 -- >
+
+
+<html>
+<head>
+
+<script type="text/javascript">
+
+// StartTime() function
+
+function StartTime()
+{
+	
+	var Today = new Date();
+	var Hours = Today.getHours();
+	var Minutes = Today.getMinutes();
+	var Seconds = Today.getSeconds();
+
+	// Adds in a 0 in front of numbers that are < 10
+
+		Minutes = CheckTime(Minutes);
+		Seconds = CheckTime(Seconds);
+		document.getElementById('txt').innerHTML=Hours+":"+Minutes+":"+Seconds;
+		Time = setTimeout('StartTime()', 500);
+	}
+
+// CheckTime() function
+
+function CheckTime(i)
+{
+	if (i < 10)
+	{
+		i = "0" + i;
+	}
+
+ return i;
+}
+
+</script>
+</head>
+
+<body onload="StartTime()">
+	<div id="txt"></div>
+
+</body>
+</html>
